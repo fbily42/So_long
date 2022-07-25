@@ -6,7 +6,7 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 19:58:02 by fbily             #+#    #+#              #
-#    Updated: 2022/07/25 22:29:07 by fbily            ###   ########.fr        #
+#    Updated: 2022/07/25 23:20:40 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ fclean : clean
 	make $@ -C Libs/Libft
 	make $@ -C Libs/ft_printf
 	make clean Libs/mlx_linux
-	rm -f Libs/libft.a Libs/libprintf.a
+	rm -f Libs/libft.a Libs/libprintf.a Libs/libmlx.a
 	rm -f ${NAME}
 
 re : fclean all
