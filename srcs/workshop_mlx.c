@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   workshop_mlx.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbily <fbily@student42.fr>                 +#+  +:+       +#+        */
+/*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 19:41:08 by fbily             #+#    #+#             */
-/*   Updated: 2022/07/22 23:40:24 by fbily            ###   ########.fr       */
+/*   Updated: 2022/07/25 22:11:06 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./MiniLibX/mlx.h"
+#include "../includes/so_long.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -164,7 +164,7 @@ int main(void)
 	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "endian");
 	vars.image.img = mlx_new_image(vars.mlx, WIDTH, HEIGHT);
 	vars.image.addr = mlx_get_data_addr(vars.image.img, &vars.image.bpp, &vars.image.size_line, &vars.image.endian);
-	vars.tex.img = mlx_xpm_file_to_image(vars.mlx, "./textures/toto.xpm", &vars.tex.width, &vars.tex.height);
+	vars.tex.img = mlx_xpm_file_to_image(vars.mlx, "textures/toto.xpm", &vars.tex.width, &vars.tex.height);
 	vars.tex.addr = mlx_get_data_addr(vars.tex.img, &vars.tex.bpp, &vars.tex.size_line, &vars.tex.endian);
 
 
