@@ -6,7 +6,7 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 15:41:02 by fbily             #+#    #+#              #
-#    Updated: 2022/07/25 21:21:40 by fbily            ###   ########.fr        #
+#    Updated: 2022/08/07 15:45:31 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,19 +26,28 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+####### COLORS #######
+
+GREEN = "\033[92m"
+CYAN = "\033[96m"
+BOLD = "\033[1m"
+NC = "\033[0m"
+#Reset : NC = No Colors
+
 all : ${NAME}
 
 ${NAME} : ${OBJ}
-	ar rc ${NAME} $^
+	@ar rc ${NAME} $^
+	@echo ${CYAN}${BOLD}Printf ${NC}[${GREEN}OK${NC}]
 
 %.o : %.c
-	${CC} ${CFLAGS} ${INC} -o $@ -c $<
+	@${CC} ${CFLAGS} ${INC} -o $@ -c $<
 
 clean :
-	rm -f ${OBJ}
+	@rm -f ${OBJ}
 
 fclean : clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 	
 re : fclean all
 

@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 16:13:58 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/14 20:18:05 by fbily            ###   ########.fr       */
+/*   Updated: 2022/07/25 23:13:31 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 typedef struct s_list
 {

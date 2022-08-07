@@ -6,7 +6,7 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 15:31:55 by fbily             #+#    #+#              #
-#    Updated: 2022/07/25 22:28:13 by fbily            ###   ########.fr        #
+#    Updated: 2022/08/07 15:45:40 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_at
 ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ${GNL}
+
+GNL = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c 
 
 SRC_PATH = ./srcs/
 
@@ -32,19 +34,28 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+####### COLORS #######
+
+GREEN = "\033[92m"
+CYAN = "\033[96m"
+BOLD = "\033[1m"
+NC = "\033[0m"
+# NC = No Colors (use for reset)
+
 all : ${NAME}
 
 ${NAME} : ${OBJ}
-	ar rc ${NAME} $^
+	@ar rc ${NAME} $^
+	@echo ${CYAN}${BOLD}Libft ${NC}[${GREEN}OK${NC}]
 
 %.o : %.c
-	${CC} ${CFLAGS} ${INC} -o $@ -c $<
+	@${CC} ${CFLAGS} ${INC} -o $@ -c $<
 
 clean :
-	rm -f ${OBJ}
+	@rm -f ${OBJ}
 
 fclean : clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re : fclean all
 

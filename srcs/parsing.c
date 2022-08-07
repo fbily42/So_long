@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:50:21 by fbily             #+#    #+#             */
-/*   Updated: 2022/07/29 14:59:42 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/07 16:16:32 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 int	parsing(char *argv)
 {
+	char	**map;
 	char	*pts;
-	int		i;
 	int		fd;
+	int		i;
 
 	i = 0;
+	map = NULL;
 	pts = ft_strrchr(argv, '.');
 	if (pts == NULL || ft_strncmp(pts, ".ber", 5) != 0 || *pts == *argv)
 		return (1);
 	fd = open(argv, __O_DIRECTORY);
 	if (fd >= 0)
 		return (close(fd), 1);
-	i = count_lignes(argv);
-	ft_printf("La map possede %d lignes\n", i);
+	map = get_map(argv, map);
+	while (map[i])
+		ft_printf("%s", map[i++]);
+	clean_map(map);
 	return (0);
 }
 
-int	count_lignes(char *file)
+int	count_lignes(char *file_path)
 {
 	char	buf[1];
 	int		fd;
@@ -38,7 +42,7 @@ int	count_lignes(char *file)
 	int		readed;
 
 	count = 0;
-	fd = open(file, O_RDONLY);
+	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (-1);
 	while (1)
@@ -51,4 +55,37 @@ int	count_lignes(char *file)
 	}
 	close(fd);
 	return (count);
+}
+
+char	**get_map(char *file_path, char **map)
+{
+	int		nb_ligne;
+	int		fd;
+	int		i;
+
+	i = 0;
+	nb_ligne = count_lignes(file_path);
+	fd = open(file_path, O_RDONLY);
+	map = malloc(sizeof(char *) * (nb_ligne + 1));
+	if (map == NULL || fd == -1)
+		return (NULL);
+	while (1)
+	{
+		map[i] = get_next_line(fd);
+		if (map[i] == NULL)
+			break ;
+		i++;
+	}
+	close (fd);
+	return (map);
+}
+
+void	clean_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+		free(map[i++]);
+	free(map);
 }
