@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_image.c                                       :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 22:33:22 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 01:26:31 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 03:32:12 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,7 @@ void	which_sprite(t_vars *vars, char c)
 			vars->pos.x, vars->pos.y);
 	}
 	if (c == 'P')
-	{
-		draw_sprite(&vars->image, &vars->player,
-			vars->pos.x, vars->pos.y);
-	}
+		which_player(vars);
 	if (c == 'C')
 	{
 		draw_sprite(&vars->image, &vars->object,

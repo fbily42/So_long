@@ -6,13 +6,13 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 19:58:02 by fbily             #+#    #+#              #
-#    Updated: 2022/08/12 02:29:34 by fbily            ###   ########.fr        #
+#    Updated: 2022/08/12 03:32:24 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = main.c parsing.c parsing_2.c mlx_utils.c mlx_utils_2.c draw.c cleanning.c
+SRC = main.c parsing.c parsing_2.c mlx_utils.c mlx_utils_2.c draw.c draw_2.c cleanning.c
 
 SRCS = $(addprefix ${SRC_PATH}, ${SRC})
 

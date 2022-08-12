@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 02:17:42 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 02:22:10 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 03:17:28 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ void	get_window_size(t_vars *vars)
 void	clear_window(t_vars *vars)
 {
 	ft_bzero(vars->image.addr, vars->height * vars->width * 4);
+}
+
+int	close_window(t_vars *vars)
+{
+	mlx_loop_end(vars->mlx);
+	return (0);
 }

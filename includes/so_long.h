@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:00:15 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 02:28:43 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 03:42:43 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,15 @@ typedef struct s_vars
 	t_data			image;
 	t_data			wall;
 	t_data			ground;
-	t_data			player;
+	t_data			player_h;
+	t_data			player_b;
+	t_data			player_g;
+	t_data			player_d;
 	t_data			object;
 	t_data			exit;
 	t_pos			pos;
 	int				moves;
+	int				dir;
 	unsigned int	width;
 	unsigned int	height;
 }				t_vars;
@@ -84,12 +88,14 @@ void			put_color(t_data *image, int x, int y, unsigned int color);
 void			draw_sprite(t_data *image, t_data *sprite, int x, int y);
 void			which_sprite(t_vars *vars, char c);
 void			draw_image(t_vars *vars);
+void			which_player(t_vars *vars);
 
 /****************		MLX_Utils		*******************/
 
 void			switch_position(t_vars *vars, size_t i, size_t j);
 void			get_window_size(t_vars *vars);
 void			get_images_addr(t_vars *vars);
+void			create_player(t_vars *vars);
 void			clear_window(t_vars *vars);
 int				keypress(int key, t_vars *vars);
 int				create_images(t_vars *vars);
