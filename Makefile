@@ -6,13 +6,13 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 19:58:02 by fbily             #+#    #+#              #
-#    Updated: 2022/08/07 16:11:37 by fbily            ###   ########.fr        #
+#    Updated: 2022/08/12 02:29:34 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = main.c parsing.c
+SRC = main.c parsing.c parsing_2.c mlx_utils.c mlx_utils_2.c draw.c cleanning.c
 
 SRCS = $(addprefix ${SRC_PATH}, ${SRC})
 
@@ -39,10 +39,10 @@ NC = "\033[0m"
 all : ${NAME}
 
 ${NAME} : ${OBJ}
-	make header
-	@make -C Libs/Libft
-	@make -C Libs/ft_printf
-	@make -C Libs/mlx_linux
+	make --no-print-directory header
+	@make --no-print-directory -C Libs/Libft
+	@make --no-print-directory -C Libs/ft_printf
+	@make --no-print-directory -C Libs/mlx_linux
 	@cp ./Libs/Libft/libft.a Libs
 	@cp ./Libs/ft_printf/libprintf.a Libs
 	@cp ./Libs/mlx_linux/libmlx.a Libs
@@ -55,14 +55,14 @@ ${NAME} : ${OBJ}
 	@${CC} ${CFLAGS} ${INC} -o $@ -c $<
 		
 clean :
-	@make $@ -C Libs/Libft
-	@make $@ -C Libs/ft_printf
+	@make $@ --no-print-directory -C Libs/Libft
+	@make $@ --no-print-directory -C Libs/ft_printf
 	@rm -f ${OBJ}
 
 fclean : clean
-	@make $@ -C Libs/Libft
-	@make $@ -C Libs/ft_printf
-	@make clean Libs/mlx_linux
+	@make $@ --no-print-directory -C Libs/Libft
+	@make $@ --no-print-directory -C Libs/ft_printf
+	@make --no-print-directory clean Libs/mlx_linux
 	@rm -f Libs/libft.a Libs/libprintf.a Libs/libmlx.a
 	@rm -f ${NAME}
 	@echo ${CYAN}${BOLD}Cleanning ${NC}[${GREEN}OK${NC}]

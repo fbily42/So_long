@@ -6,13 +6,13 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:50:21 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/08 16:07:51 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 00:00:50 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	parsing(char *argv)
+int	parsing(t_vars *vars, char *argv)
 {
 	t_map	map;
 	char	*pts;
@@ -32,8 +32,8 @@ int	parsing(char *argv)
 	if (map.map == NULL)
 		return (1);
 	if (parse_map(&map) != 0)
-		return (1);
-	clean_map(map.map);
+		return (clean_map(map.map), 1);
+	vars->map = map;
 	return (0);
 }
 
@@ -125,58 +125,4 @@ int	check_size(t_map *map)
 		i++;
 	}
 	return (0);
-}
-
-int	count_lignes(char *file_path)
-{
-	char	*line;
-	int		fd;
-	int		count;
-
-	count = 0;
-	fd = open(file_path, O_RDONLY);
-	if (fd == -1)
-		return (-1);
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		count++;
-		free(line);
-	}
-	close(fd);
-	free(line);
-	return (count);
-}
-
-char	**get_map(char *file_path, char **map, int nb_ligne)
-{
-	int		fd;
-	int		i;
-
-	i = 0;
-	fd = open(file_path, O_RDONLY);
-	map = malloc(sizeof(char *) * (nb_ligne + 1));
-	if (map == NULL || fd == -1)
-		return (NULL);
-	while (1)
-	{
-		map[i] = get_next_line(fd);
-		if (map[i] == NULL)
-			break ;
-		i++;
-	}
-	close (fd);
-	return (map);
-}
-
-void	clean_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
 }
