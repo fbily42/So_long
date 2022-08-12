@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:00:15 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 03:42:43 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 06:25:47 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int				count_lignes(char *file);
 int				check_size(t_map *map);
 int				parse_map(t_map *map);
 int				check_map(t_map *map);
+int				count_p(t_vars *vars);
 
 /****************		Draw		*******************/
 

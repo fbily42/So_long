@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 02:17:42 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 03:17:28 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 06:25:34 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,14 @@ void	switch_position(t_vars *vars, size_t i, size_t j)
 		ft_printf("%d\n", vars->moves);
 		mlx_loop_end(vars->mlx);
 	}
-	else if (vars->map.map[i][j] == 'C')
-	{
-		vars->map.map[i][j] = 'P';
-		vars->map.map[vars->map.player.y][vars->map.player.x] = '0';
-		vars->map.count_c--;
-		vars->moves++;
-		ft_printf("%d\n", vars->moves);
-	}
 	else
 	{
-		vars->map.map[i][j] = 'P';
 		vars->map.map[vars->map.player.y][vars->map.player.x] = '0';
+		if (count_p(vars) > 0)
+			return ;
+		if (vars->map.map[i][j] == 'C')
+			vars->map.count_c--;
+		vars->map.map[i][j] = 'P';
 		vars->moves++;
 		ft_printf("%d\n", vars->moves);
 	}

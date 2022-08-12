@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 23:17:29 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 03:42:34 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 06:15:18 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,17 @@ int	keypress(int key, t_vars *vars)
 
 int	render_image(t_vars *vars)
 {
+	char	*buf;
+
 	vars->pos.x = 0;
 	vars->pos.y = 0;
 	find_p(vars);
 	clear_window(vars);
 	draw_image(vars);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->image.img, 0, 0);
+	buf = ft_itoa(vars->moves);
+	mlx_string_put(vars->mlx, vars->win, 32, 32, 0x0000FF00, buf);
+	free(buf);
 	return (0);
 }
 

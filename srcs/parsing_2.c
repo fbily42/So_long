@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:36:17 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 02:26:53 by fbily            ###   ########.fr       */
+/*   Updated: 2022/08/12 06:20:19 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,26 @@ void	find_p(t_vars *vars)
 		}
 		i++;
 	}
+}
+
+int	count_p(t_vars *vars)
+{
+	size_t	i;
+	size_t	j;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (vars->map.map[i])
+	{
+		j = 0;
+		while (vars->map.map[i][j])
+		{
+			if (vars->map.map[i][j] == 'P')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
 }
