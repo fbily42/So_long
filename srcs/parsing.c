@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:50:21 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 00:00:50 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/01 20:44:14 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ int	check_size(t_map *map)
 
 	i = 0;
 	map->size_line = ft_strlen(map->map[0]);
+	if (map->size_line < 1)
+		return (1);
 	if (map->map[0][map->size_line - 1] == '\n')
 		map->size_line = map->size_line - 1;
 	while (map->map[i])
