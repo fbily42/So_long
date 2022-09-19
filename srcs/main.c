@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbily <fbily@student42.fr>                 +#+  +:+       +#+        */
+/*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 21:50:42 by fbily             #+#    #+#             */
-/*   Updated: 2022/09/04 23:06:18 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/19 19:43:32 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char **argv)
 		return (ft_printf("Error\nMap incorrect\n"));
 	if (vars.map.nb_ligne > 64 || vars.map.size_line > 64)
 		return (clean_all(&vars), ft_printf("Error\nMap trop grande\n"));
+	if (check_path(vars, argv[1]) != 0)
+		return (clean_all(&vars), ft_printf("Error\nMap non terminable\n"));
 	get_window_size(&vars);
 	vars.mlx = mlx_init();
 	if (vars.mlx == NULL)
