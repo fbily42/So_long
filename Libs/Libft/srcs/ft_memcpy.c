@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 12:21:49 by flamby            #+#    #+#             */
-/*   Updated: 2022/05/20 18:46:21 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:44:32 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

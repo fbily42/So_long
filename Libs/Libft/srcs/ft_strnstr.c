@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:35 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/20 18:53:00 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:45:47 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

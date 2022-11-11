@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:31:15 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/12 15:33:17 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:44:42 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

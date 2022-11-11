@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 16:26:47 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/20 18:56:14 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:45:37 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 size_t	ft_strlen(const char *str)
 {

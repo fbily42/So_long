@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:52:51 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/20 18:57:27 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:45:33 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static void	ft_cpy(char *dest, char *src, int n)
 {

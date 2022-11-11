@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:40:54 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/17 10:47:41 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:45:56 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

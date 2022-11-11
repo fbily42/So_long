@@ -6,13 +6,14 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 19:58:02 by fbily             #+#    #+#              #
-#    Updated: 2022/08/12 03:32:24 by fbily            ###   ########.fr        #
+#    Updated: 2022/09/20 17:39:42 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = main.c parsing.c parsing_2.c mlx_utils.c mlx_utils_2.c draw.c draw_2.c cleanning.c
+SRC = main.c parsing.c parsing_2.c mlx_utils.c mlx_utils_2.c draw.c draw_2.c cleanning.c \
+	pathfinding.c pathfinding_2.c
 
 SRCS = $(addprefix ${SRC_PATH}, ${SRC})
 
@@ -20,7 +21,9 @@ SRC_PATH = ./srcs/
 
 OBJ = ${SRCS:.c=.o}
 
-INC = -I./includes
+INC = ./includes/
+
+DEPS = ${INC}so_long.h
 
 LIB = -L./Libs/ -lft -L./Libs/ -lprintf -L./Libs/ -lmlx -lXext -lX11 -lm -lz
 
@@ -38,7 +41,7 @@ NC = "\033[0m"
 
 all : ${NAME}
 
-${NAME} : ${OBJ}
+${NAME} : ${OBJ} ${DEPS}
 	make --no-print-directory header
 	@make --no-print-directory -C Libs/Libft
 	@make --no-print-directory -C Libs/ft_printf
@@ -46,13 +49,13 @@ ${NAME} : ${OBJ}
 	@cp ./Libs/Libft/libft.a Libs
 	@cp ./Libs/ft_printf/libprintf.a Libs
 	@cp ./Libs/mlx_linux/libmlx.a Libs
-	@${CC} ${CFLAGS} ${INC} -o ${NAME} ${OBJ} ${LIB}
+	@${CC} ${CFLAGS} -o ${NAME} ${OBJ} ${LIB}
 	@echo ${CYAN}${BOLD}Compilation ${NC}[${GREEN}OK${NC}]
 
 # Lancer avec "make CFLAGS+=-g3" pour debug.
 
-%.o : %.c
-	@${CC} ${CFLAGS} ${INC} -o $@ -c $<
+%.o : %.c ${DEPS}
+	@${CC} ${CFLAGS} -o $@ -c $<
 		
 clean :
 	@make $@ --no-print-directory -C Libs/Libft

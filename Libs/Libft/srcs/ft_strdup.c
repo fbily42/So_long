@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:59:29 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/20 18:49:17 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:45:03 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strdup(const char *s)
 {

@@ -6,7 +6,7 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 15:41:02 by fbily             #+#    #+#              #
-#    Updated: 2022/08/07 15:45:31 by fbily            ###   ########.fr        #
+#    Updated: 2022/09/20 17:48:57 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRCS = $(addprefix ${SRC_PATH}, ${SRC})
 
 OBJ = ${SRCS:.c=.o}
 
-INC = -I./includes
+INC = ./includes/
+
+DEPS = ${INC}libftprintf.h
 
 CC = gcc
 
@@ -36,12 +38,12 @@ NC = "\033[0m"
 
 all : ${NAME}
 
-${NAME} : ${OBJ}
+${NAME} : ${OBJ} ${DEPS}
 	@ar rc ${NAME} $^
 	@echo ${CYAN}${BOLD}Printf ${NC}[${GREEN}OK${NC}]
 
-%.o : %.c
-	@${CC} ${CFLAGS} ${INC} -o $@ -c $<
+%.o : %.c ${DEPS}
+	@${CC} ${CFLAGS} -o $@ -c $<
 
 clean :
 	@rm -f ${OBJ}

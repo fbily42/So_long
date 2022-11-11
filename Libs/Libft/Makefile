@@ -6,7 +6,7 @@
 #    By: fbily <fbily@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 15:31:55 by fbily             #+#    #+#              #
-#    Updated: 2022/08/11 16:13:05 by fbily            ###   ########.fr        #
+#    Updated: 2022/09/20 17:42:12 by fbily            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ SRCS = $(addprefix ${SRC_PATH}, ${SRC})
 
 OBJ = ${SRCS:.c=.o}
 
-INC = -I./includes
+INC = ./includes/
+
+DEPS = ${INC}libft.h
 
 CC = gcc
 
@@ -44,12 +46,12 @@ NC = "\033[0m"
 
 all : ${NAME}
 
-${NAME} : ${OBJ}
+${NAME} : ${OBJ} ${DEPS}
 	@ar rc ${NAME} $^
 	@echo ${CYAN}${BOLD}Libft ${NC}[${GREEN}OK${NC}]
 
-%.o : %.c
-	@${CC} ${CFLAGS} ${INC} -o $@ -c $<
+%.o : %.c ${DEPS}
+	@${CC} ${CFLAGS} -o $@ -c $<
 
 clean :
 	@rm -f ${OBJ}

@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:00:15 by fbily             #+#    #+#             */
-/*   Updated: 2022/08/12 06:25:47 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 18:24:38 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef struct s_pos
 	int	y;
 }				t_pos;
 
+typedef struct s_dir
+{
+	int	up;
+	int	down;
+	int	left;
+	int	right;
+}				t_dir;
+
 typedef struct s_map
 {
 	size_t				size_line;
@@ -37,6 +45,18 @@ typedef struct s_map
 	t_pos				player;
 
 }				t_map;
+
+typedef struct s_path
+{
+	char	**map;
+	char	**visited;
+	t_pos	start;
+	t_pos	target;
+	int		nb_ligne;
+	size_t	size_line;
+	int		count_c;
+	int		count_e;
+}				t_path;
 
 typedef struct s_data
 {
@@ -109,5 +129,16 @@ void			destroy_images(t_vars *vars);
 void			init_struct(t_vars *vars);
 void			clean_all(t_vars *vars);
 void			clean_map(char **map);
+
+/****************		Pathfinding		*******************/
+
+void			find_player(t_path *path);
+void			erase_map(char ***map);
+void			print_map(char **map);
+int				find_path_c(t_path *path, int i, size_t j);
+int				find_path_e(t_path *path, int i, size_t j);
+int				is_safe(int i, size_t j, t_path *path);
+int				check_path(t_vars vars, char *argv);
+int				try_find_paths(t_path *path);
 
 #endif

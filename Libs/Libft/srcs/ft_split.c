@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 17:16:08 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/13 17:12:10 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:44:54 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	count(char const *str, char c)
 {

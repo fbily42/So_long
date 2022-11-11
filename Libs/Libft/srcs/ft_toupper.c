@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 12:57:40 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/11 15:38:19 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:46:02 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_toupper(int c)
 {

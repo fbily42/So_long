@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 12:22:05 by fbily             #+#    #+#             */
-/*   Updated: 2022/05/20 18:53:58 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:45:53 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	inset(char *set, char c)
 {

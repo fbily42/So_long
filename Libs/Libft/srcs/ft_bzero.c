@@ -6,11 +6,11 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 12:16:58 by flamby            #+#    #+#             */
-/*   Updated: 2022/05/20 18:44:40 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 17:43:41 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

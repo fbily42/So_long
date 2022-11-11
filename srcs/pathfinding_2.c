@@ -6,7 +6,7 @@
 /*   By: fbily <fbily@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 20:40:50 by fbily             #+#    #+#             */
-/*   Updated: 2022/09/19 20:41:17 by fbily            ###   ########.fr       */
+/*   Updated: 2022/09/20 18:19:28 by fbily            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	erase_map(char ***map)
 		j = 1;
 		while ((*map)[i][j])
 		{
-			(*map)[i][j] = '0';
+			if ((*map)[i][j] != '1' && (*map)[i][j] != '\n')
+				(*map)[i][j] = '0';
 			j++;
 		}
 		i++;
@@ -57,6 +58,19 @@ void	find_player(t_path *path)
 			}
 			j++;
 		}
+		i++;
+	}
+}
+
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("\n");
+	while (map[i])
+	{
+		ft_printf("%s", map[i]);
 		i++;
 	}
 }
